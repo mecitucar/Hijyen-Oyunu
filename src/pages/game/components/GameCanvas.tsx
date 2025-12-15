@@ -334,18 +334,18 @@ export default function GameCanvas({ theme, questionTheme, answeredCorrectly }: 
 
       {/* Kutlama animasyonu */}
       {showCelebration && (
-        <div 
-          className="absolute bottom-28 z-30 transition-all duration-1000"
+        <div
+          className="absolute bottom-28 z-30 pointer-events-none"
           style={{
-            left: showCelebration ? '50%' : '-20%',
-            transform: 'translateX(-50%)',
-            animation: 'slideInOut 2.5s ease-in-out'
+            left: showCelebration ? '6%' : '-30%',
+            transform: 'translateX(0%)',
+            animation: 'celebrateLeft 2.5s ease-in-out'
           }}
         >
-          <img 
+          <img
             src="https://static.readdy.ai/image/1a6dc68b8259eb6118d5042abebc473a/554baf9496b445d209d0b74b2df3d51f.png"
             alt="Kutlama"
-            className="h-64 w-auto object-contain drop-shadow-2xl"
+            className="h-96 w-auto object-contain drop-shadow-2xl"
           />
         </div>
       )}
@@ -460,211 +460,7 @@ export default function GameCanvas({ theme, questionTheme, answeredCorrectly }: 
         <div className="h-16 bg-gradient-to-b from-black/30 via-black/10 to-transparent"></div>
       </div>
 
-      {/* 2 Öğrenci Karakteri */}
-      <div 
-        className="absolute bottom-28 transition-all duration-700 ease-out z-20"
-        style={{ left: `${5 + characterPosition}%` }}
-      >
-        <div className="flex items-end gap-6">
-          {/* Kız Öğrenci */}
-          <div className="relative">
-            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-20 h-4 bg-black/30 rounded-full blur-md"></div>
-            
-            <div className={`relative transition-all duration-500 ${
-              answeredCorrectly === true ? 'animate-bounce' : answeredCorrectly === false ? 'animate-pulse' : ''
-            }`}>
-              {/* Baş */}
-              <div className={`w-24 h-24 rounded-full transition-all duration-500 ${
-                theme === 'positive' 
-                  ? 'bg-gradient-to-br from-pink-200 via-rose-100 to-pink-50 shadow-2xl scale-110 ring-4 ring-pink-300/50' 
-                  : theme === 'negative'
-                  ? 'bg-gradient-to-br from-gray-300 to-gray-200 shadow-lg scale-95'
-                  : 'bg-gradient-to-br from-pink-100 via-rose-50 to-pink-50 shadow-xl'
-              } flex items-center justify-center relative overflow-hidden`}>
-                {/* Saç */}
-                <div className="absolute -top-2 left-0 right-0 flex justify-center">
-                  <div className={`w-28 h-16 rounded-t-full transition-colors duration-500 ${
-                    theme === 'positive' ? 'bg-amber-800' : theme === 'negative' ? 'bg-gray-600' : 'bg-amber-700'
-                  }`}></div>
-                </div>
-                <div className="absolute top-2 left-4">
-                  <div className={`w-6 h-10 rounded-full transition-colors duration-500 ${
-                    theme === 'positive' ? 'bg-amber-800' : theme === 'negative' ? 'bg-gray-600' : 'bg-amber-700'
-                  }`}></div>
-                </div>
-                <div className="absolute top-2 right-4">
-                  <div className={`w-6 h-10 rounded-full transition-colors duration-500 ${
-                    theme === 'positive' ? 'bg-amber-800' : theme === 'negative' ? 'bg-gray-600' : 'bg-amber-700'
-                  }`}></div>
-                </div>
-                
-                {/* Yüz ifadesi */}
-                <div className="relative z-10 flex flex-col items-center gap-2">
-                  <div className="flex gap-4 mt-2">
-                    <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      answeredCorrectly === true ? 'bg-gray-800 scale-125' : 
-                      answeredCorrectly === false ? 'bg-gray-700 scale-90' : 'bg-gray-800'
-                    }`}></div>
-                    <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      answeredCorrectly === true ? 'bg-gray-800 scale-125' : 
-                      answeredCorrectly === false ? 'bg-gray-700 scale-90' : 'bg-gray-800'
-                    }`}></div>
-                  </div>
-                  
-                  {answeredCorrectly === true ? (
-                    <div className="w-8 h-4 border-b-4 border-gray-800 rounded-b-full mt-1"></div>
-                  ) : answeredCorrectly === false ? (
-                    <div className="w-8 h-1 bg-gray-700 rounded-full mt-2"></div>
-                  ) : (
-                    <div className="w-6 h-3 border-b-3 border-gray-700 rounded-b-lg mt-1"></div>
-                  )}
-                </div>
-              </div>
-              
-              {/* Vücut */}
-              <div className={`w-20 h-28 mx-auto -mt-2 rounded-b-3xl transition-all duration-500 ${
-                theme === 'positive' 
-                  ? 'bg-gradient-to-b from-rose-400 to-pink-500 shadow-xl' 
-                  : theme === 'negative'
-                  ? 'bg-gradient-to-b from-gray-400 to-gray-500 shadow-md'
-                  : 'bg-gradient-to-b from-rose-300 to-pink-400 shadow-lg'
-              } relative overflow-hidden`}>
-                <div className="absolute -left-3 top-2 w-6 h-20 bg-gradient-to-b from-rose-400 to-pink-500 rounded-full"></div>
-                <div className="absolute -right-3 top-2 w-6 h-20 bg-gradient-to-b from-rose-400 to-pink-500 rounded-full"></div>
-              </div>
-              
-              {/* Bacaklar */}
-              <div className="flex gap-2 justify-center -mt-1">
-                <div className={`w-7 h-16 rounded-b-lg transition-all duration-500 ${
-                  theme === 'positive' ? 'bg-pink-600' : theme === 'negative' ? 'bg-gray-600' : 'bg-pink-500'
-                }`}></div>
-                <div className={`w-7 h-16 rounded-b-lg transition-all duration-500 ${
-                  theme === 'positive' ? 'bg-pink-600' : theme === 'negative' ? 'bg-gray-600' : 'bg-pink-500'
-                }`}></div>
-              </div>
-            </div>
-            
-            {answeredCorrectly === true && (
-              <>
-                <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 animate-bounce">
-                  <i className="ri-star-fill text-5xl text-yellow-400 drop-shadow-2xl"></i>
-                </div>
-                {[...Array(6)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute top-0 left-1/2 w-2 h-2 rounded-full animate-ping"
-                    style={{
-                      background: ['#fbbf24', '#f59e0b', '#10b981'][i % 3],
-                      animationDelay: `${i * 0.1}s`,
-                      transform: `translate(${Math.cos(i * 60) * 30}px, ${Math.sin(i * 60) * 30}px)`
-                    }}
-                  ></div>
-                ))}
-              </>
-            )}
-            
-            {answeredCorrectly === false && (
-              <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 animate-pulse">
-                <i className="ri-emotion-sad-line text-5xl text-red-500 drop-shadow-2xl"></i>
-              </div>
-            )}
-          </div>
-
-          {/* Erkek Öğrenci */}
-          <div className="relative">
-            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-20 h-4 bg-black/30 rounded-full blur-md"></div>
-            
-            <div className={`relative transition-all duration-500 ${
-              answeredCorrectly === true ? 'animate-bounce' : answeredCorrectly === false ? 'animate-pulse' : ''
-            }`}>
-              {/* Baş */}
-              <div className={`w-24 h-24 rounded-full transition-all duration-500 ${
-                theme === 'positive' 
-                  ? 'bg-gradient-to-br from-amber-200 via-yellow-100 to-amber-50 shadow-2xl scale-110 ring-4 ring-cyan-300/50' 
-                  : theme === 'negative'
-                  ? 'bg-gradient-to-br from-gray-300 to-gray-200 shadow-lg scale-95'
-                  : 'bg-gradient-to-br from-amber-100 via-yellow-50 to-amber-50 shadow-xl'
-              } flex items-center justify-center relative overflow-hidden`}>
-                {/* Saç */}
-                <div className="absolute -top-1 left-0 right-0 flex justify-center">
-                  <div className={`w-24 h-12 rounded-t-full transition-colors duration-500 ${
-                    theme === 'positive' ? 'bg-gray-800' : theme === 'negative' ? 'bg-gray-700' : 'bg-gray-700'
-                  }`}></div>
-                </div>
-                
-                {/* Yüz ifadesi */}
-                <div className="relative z-10 flex flex-col items-center gap-2">
-                  <div className="flex gap-4 mt-2">
-                    <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      answeredCorrectly === true ? 'bg-gray-800 scale-125' : 
-                      answeredCorrectly === false ? 'bg-gray-700 scale-90' : 'bg-gray-800'
-                    }`}></div>
-                    <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      answeredCorrectly === true ? 'bg-gray-800 scale-125' : 
-                      answeredCorrectly === false ? 'bg-gray-700 scale-90' : 'bg-gray-800'
-                    }`}></div>
-                  </div>
-                  
-                  {answeredCorrectly === true ? (
-                    <div className="w-8 h-4 border-b-4 border-gray-800 rounded-b-full mt-1"></div>
-                  ) : answeredCorrectly === false ? (
-                    <div className="w-8 h-1 bg-gray-700 rounded-full mt-2"></div>
-                  ) : (
-                    <div className="w-6 h-3 border-b-3 border-gray-700 rounded-b-lg mt-1"></div>
-                  )}
-                </div>
-              </div>
-              
-              {/* Vücut */}
-              <div className={`w-20 h-28 mx-auto -mt-2 rounded-b-3xl transition-all duration-500 ${
-                theme === 'positive' 
-                  ? 'bg-gradient-to-b from-cyan-400 to-teal-500 shadow-xl' 
-                  : theme === 'negative'
-                  ? 'bg-gradient-to-b from-gray-400 to-gray-500 shadow-md'
-                  : 'bg-gradient-to-b from-cyan-300 to-teal-400 shadow-lg'
-              } relative overflow-hidden`}>
-                <div className="absolute -left-3 top-2 w-6 h-20 bg-gradient-to-b from-cyan-400 to-teal-500 rounded-full"></div>
-                <div className="absolute -right-3 top-2 w-6 h-20 bg-gradient-to-b from-cyan-400 to-teal-500 rounded-full"></div>
-              </div>
-              
-              {/* Bacaklar */}
-              <div className="flex gap-2 justify-center -mt-1">
-                <div className={`w-7 h-16 rounded-b-lg transition-all duration-500 ${
-                  theme === 'positive' ? 'bg-teal-600' : theme === 'negative' ? 'bg-gray-600' : 'bg-teal-500'
-                }`}></div>
-                <div className={`w-7 h-16 rounded-b-lg transition-all duration-500 ${
-                  theme === 'positive' ? 'bg-teal-600' : theme === 'negative' ? 'bg-gray-600' : 'bg-teal-500'
-                }`}></div>
-              </div>
-            </div>
-            
-            {answeredCorrectly === true && (
-              <>
-                <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 animate-bounce">
-                  <i className="ri-star-fill text-5xl text-yellow-400 drop-shadow-2xl"></i>
-                </div>
-                {[...Array(6)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute top-0 left-1/2 w-2 h-2 rounded-full animate-ping"
-                    style={{
-                      background: ['#06b6d4', '#0891b2', '#10b981'][i % 3],
-                      animationDelay: `${i * 0.1}s`,
-                      transform: `translate(${Math.cos(i * 60 + 30) * 30}px, ${Math.sin(i * 60 + 30) * 30}px)`
-                    }}
-                  ></div>
-                ))}
-              </>
-            )}
-            
-            {answeredCorrectly === false && (
-              <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 animate-pulse">
-                <i className="ri-emotion-sad-line text-5xl text-red-500 drop-shadow-2xl"></i>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
+      {/* Öğrenci karakterleri kaldırıldı (silüetler) */}
 
       {/* İlerleme göstergesi */}
       <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-4 z-10">
@@ -689,22 +485,26 @@ export default function GameCanvas({ theme, questionTheme, answeredCorrectly }: 
       </div>
 
       <style>{`
-        @keyframes slideInOut {
+        @keyframes celebrateLeft {
           0% {
-            left: -20%;
+            left: -30%;
             opacity: 0;
+            transform: scale(0.6);
           }
           20% {
-            left: 50%;
+            left: 6%;
             opacity: 1;
+            transform: scale(1.25);
           }
           80% {
-            left: 50%;
+            left: 6%;
             opacity: 1;
+            transform: scale(1);
           }
           100% {
-            left: -20%;
+            left: -30%;
             opacity: 0;
+            transform: scale(0.6);
           }
         }
       `}</style>
