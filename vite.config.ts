@@ -77,7 +77,10 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3000,
-    host: "0.0.0.0",
+    // Bind only to loopback to avoid Windows firewall "Allow" prompts
+    // Keep port configurable via PORT env; use strictPort so Vite fails if port busy
+    port: Number(process.env.PORT) || 5500,
+    host: "127.0.0.1",
+    strictPort: true,
   },
 });
