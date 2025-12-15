@@ -337,7 +337,7 @@ export default function GameCanvas({ theme, questionTheme, answeredCorrectly }: 
         <div
           className="absolute bottom-28 z-30 pointer-events-none"
           style={{
-              left: showCelebration ? '-6%' : '-30%',
+              left: showCelebration ? '8%' : '-30%',
               transform: 'translateX(0%)',
               animation: 'celebrateLeft 2s linear'
           }}
@@ -491,11 +491,11 @@ export default function GameCanvas({ theme, questionTheme, answeredCorrectly }: 
               opacity: 0;
             }
             20% {
-              left: -6%;
+              left: 8%;
               opacity: 1;
             }
             80% {
-              left: -6%;
+              left: 8%;
               opacity: 1;
             }
             100% {
