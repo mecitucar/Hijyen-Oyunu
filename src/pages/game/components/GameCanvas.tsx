@@ -337,9 +337,9 @@ export default function GameCanvas({ theme, questionTheme, answeredCorrectly }: 
         <div
           className="absolute bottom-28 z-30 pointer-events-none"
           style={{
-              left: showCelebration ? '13%' : '-30%',
+              left: showCelebration ? '-6%' : '-30%',
               transform: 'translateX(0%)',
-              animation: 'celebrateLeft 2.5s linear'
+              animation: 'celebrateLeft 2s linear'
           }}
         >
           <img
@@ -485,24 +485,24 @@ export default function GameCanvas({ theme, questionTheme, answeredCorrectly }: 
       </div>
 
       <style>{`
-        @keyframes celebrateLeft {
-          0% {
-            transform: translateX(-90%) scale(0.6);
-            opacity: 0;
+          @keyframes celebrateLeft {
+            0% {
+              left: -30%;
+              opacity: 0;
+            }
+            20% {
+              left: -6%;
+              opacity: 1;
+            }
+            80% {
+              left: -6%;
+              opacity: 1;
+            }
+            100% {
+              left: -30%;
+              opacity: 0;
+            }
           }
-          20% {
-            transform: translateX(-30%) scale(1.15);
-            opacity: 1;
-          }
-          60% {
-            transform: translateX(-20%) scale(1);
-            opacity: 1;
-          }
-          100% {
-            transform: translateX(-90%) scale(0.6);
-            opacity: 0;
-          }
-        }
       `}</style>
     </div>
   );
