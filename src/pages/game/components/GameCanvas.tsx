@@ -322,7 +322,7 @@ export default function GameCanvas({ theme, questionTheme, answeredCorrectly }: 
         </div>
       </div>
 
-      {/* Orta plan - çim ve doğa (kullanılabilir bir ground görseli varsa /ground.png kullanılacak, yoksa fallback gradient) */}
+      {/* Orta plan - çim ve doğa (kullanılabilir bir ground görseli varsa ground.png kullanılacak, yoksa fallback gradient) */}
             {useGroundImg ? (
         <div className="absolute left-0 right-0 h-96 w-full z-0" style={{ bottom: '-56px', animation: 'groundEnter 600ms cubic-bezier(.2,.9,.2,1) both' }}>
           <svg width="1200" height="300" viewBox="0 120 1200 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice" className="w-full h-full">
@@ -710,4 +710,5 @@ export default function GameCanvas({ theme, questionTheme, answeredCorrectly }: 
     </div>
   );
 }
+
 
