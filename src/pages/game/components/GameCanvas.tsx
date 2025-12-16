@@ -300,7 +300,7 @@ export default function GameCanvas({ theme, questionTheme, answeredCorrectly }: 
       {/* Moon overlays: appear at sun positions during wrong answers (higher z-index to ensure visibility) */}
       <div className="absolute right-8 top-24 z-60 pointer-events-none" style={{ display: showWrong ? 'block' : 'none' }}>
         <img
-          src="/ay.svg"
+          src="ay.svg"
           alt="moon"
           draggable={false}
           className="pointer-events-none"

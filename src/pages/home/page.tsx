@@ -17,7 +17,7 @@ export default function Home() {
           <div className="mb-6 flex justify-center">
             <div className="w-40 h-40 md:w-48 md:h-48 flex items-center justify-center">
               <img 
-                src="/nizam.png" 
+                src="nizam.png" 
                 alt="Hijyen Macerası Logo" 
                 className="w-full h-full object-contain"
               />
@@ -71,7 +71,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-items-center max-w-4xl mx-auto -mt-8 md:-mt-12">
             <div className="w-full h-40 md:h-52 flex items-center justify-center p-6 md:p-12 mt-0 md:mt-0">
               <img 
-                src="/tertemiz_yarinlar.png" 
+                src="tertemiz_yarinlar.png" 
                 alt="Tertemiz Yarınlar" 
                 loading="lazy"
                 onError={(e) => { (e.currentTarget as HTMLImageElement).src = 'https://static.readdy.ai/image/1a6dc68b8259eb6118d5042abebc473a/1b54d5e3e3679f2c673e8c648eb8802b.png'; }}
@@ -94,7 +94,7 @@ export default function Home() {
             </div>
             <div className="w-full h-40 md:h-52 flex items-center justify-center p-6 md:p-12 mt-0 md:mt-0">
               <img 
-                src="/nizam.png" 
+                src="nizam.png" 
                 alt="Kurum Logosu" 
                 className="max-w-full max-h-full object-contain"
               />
